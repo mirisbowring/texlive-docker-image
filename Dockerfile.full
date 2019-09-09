@@ -1,3 +1,5 @@
 FROM mirisbowring/texlive:ctanbasic
 
-RUN tlmgr install scheme-full
+RUN tlmgr install scheme-full; \
+    tlmgr update --self; \
+    tlmgr update --all
