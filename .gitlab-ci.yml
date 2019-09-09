@@ -11,7 +11,7 @@ build-master:
     - docker push "$CI_REGISTRY_IMAGE"
   only:
     - master
-
+ 
 build:
   # Official docker image.
   image: docker:latest
