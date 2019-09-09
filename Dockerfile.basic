@@ -42,6 +42,8 @@ WORKDIR /data
 
 # Install latex packages
 
+RUN tlmgr update --self
+
 RUN tlmgr install latexmk
 
 
