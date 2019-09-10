@@ -29,5 +29,6 @@ full:
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":2019 --file Dockerfile.full .
     - docker push "$CI_REGISTRY_IMAGE_FULL":2019
+    - echo "done!"
   only:
     - master
