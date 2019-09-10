@@ -17,7 +17,7 @@ stages:
  - build_basic
  - build_full
 
-basic:
+2019_basic:
   stage: build_basic
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE_BASIC":2019 --file Dockerfile.basic .
@@ -25,7 +25,7 @@ basic:
   only:
     - master
     
-full:
+2019_full:
   stage: build_full
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":2019 --file Dockerfile.full .
