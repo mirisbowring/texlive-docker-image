@@ -1,4 +1,4 @@
-FROM mirisbowring/texlive:ctanbasic
+FROM mirisbowring/texlive_ctan_basic:2019
 
 RUN tlmgr install scheme-full; \
     tlmgr update --self; \
