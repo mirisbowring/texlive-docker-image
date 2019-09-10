@@ -14,10 +14,11 @@ after_script:
   - docker logout
 
 stages:
- - build
+ - build_basic
+ - build_full
 
 basic:
-  stage: build
+  stage: build_basic
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE_BASIC":2019 --file Dockerfile.basic .
     - docker push "$CI_REGISTRY_IMAGE_BASIC":2019
@@ -25,7 +26,7 @@ basic:
     - master
     
 full:
-  stage: build
+  stage: build_full
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":2019 --file Dockerfile.full .
     - echo "done!"
