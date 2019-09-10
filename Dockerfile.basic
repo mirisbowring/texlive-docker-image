@@ -58,8 +58,8 @@ WORKDIR /data
 
 # Install latex packages
 
-RUN tlmgr install latexmk; \
-    tlmgr update --self; \
+RUN tlmgr update --self; \
+    tlmgr install latexmk; \
     tlmgr update --all
 
 VOLUME ["/data"]
