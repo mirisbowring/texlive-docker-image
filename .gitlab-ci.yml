@@ -14,19 +14,91 @@ after_script:
   - docker logout
 
 stages:
+  - "2014"
+  - "2015"
+  - "2016"
+  - "2017"
   - "2018"
   - "2019"
   - "2020"
+
+2014_basic:
+  stage: "2014"
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE" --build-arg YEAR="$CI_JOB_STAGE" --file Dockerfile.historic.basic .
+    - docker push "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
+  only:
+    variables:
+      - $YEAR == "2014" || $ALL == "true"
+
+2014_full:
+  stage: "2014"
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE" --build-arg YEAR="$CI_JOB_STAGE" --build-arg IMAGE="mirisbowring/texlive_ctan_basic:$CI_JOB_STAGE" --file Dockerfile.historic.full .
+    - docker push "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final
+  only:
+    variables:
+      - $YEAR == "2014" || $ALL == "true"
+
+2015_basic:
+  stage: "2015"
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE" --build-arg YEAR="$CI_JOB_STAGE" --file Dockerfile.historic.basic .
+    - docker push "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
+  only:
+    variables:
+      - $YEAR == "2015" || $ALL == "true"
+
+2015_full:
+  stage: "2015"
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE" --build-arg YEAR="$CI_JOB_STAGE" --build-arg IMAGE="mirisbowring/texlive_ctan_basic:$CI_JOB_STAGE" --file Dockerfile.historic.full .
+    - docker push "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final
+  only:
+    variables:
+      - $YEAR == "2015" || $ALL == "true"
+
+2016_basic:
+  stage: "2016"
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE" --build-arg YEAR="$CI_JOB_STAGE" --file Dockerfile.historic.basic .
+    - docker push "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
+  only:
+    variables:
+      - $YEAR == "2016" || $ALL == "true"
+
+2016_full:
+  stage: "2016"
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE" --build-arg YEAR="$CI_JOB_STAGE" --build-arg IMAGE="mirisbowring/texlive_ctan_basic:$CI_JOB_STAGE" --file Dockerfile.historic.full .
+    - docker push "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final
+  only:
+    variables:
+      - $YEAR == "2016" || $ALL == "true"
+
+2017_basic:
+  stage: "2017"
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE" --build-arg YEAR="$CI_JOB_STAGE" --file Dockerfile.historic.basic .
+    - docker push "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
+  only:
+    variables:
+      - $YEAR == "2017" || $ALL == "true"
+
+2017_full:
+  stage: "2017"
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE" --build-arg YEAR="$CI_JOB_STAGE" --build-arg IMAGE="mirisbowring/texlive_ctan_basic:$CI_JOB_STAGE" --file Dockerfile.historic.full .
+    - docker push "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final
+  only:
+    variables:
+      - $YEAR == "2017" || $ALL == "true"
 
 2018_basic:
   stage: "2018"
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE" --build-arg YEAR="$CI_JOB_STAGE" --file Dockerfile.historic.basic .
-    - tex --version
-    - latex --version
-    - xelatex --version
-    - pdflatex --version
-    - docker push "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"
+    - docker push "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
   only:
     variables:
       - $YEAR == "2018" || $ALL == "true"
@@ -35,7 +107,7 @@ stages:
   stage: "2018"
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE" --build-arg YEAR="$CI_JOB_STAGE" --build-arg IMAGE="mirisbowring/texlive_ctan_basic:$CI_JOB_STAGE" --file Dockerfile.historic.full .
-    - docker push "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"
+    - docker push "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final
   only:
     variables:
       - $YEAR == "2018" || $ALL == "true"
@@ -57,3 +129,19 @@ stages:
   only:
     variables:
       - $YEAR == "2019" || $ALL == "true"
+
+2020_basic:
+  stage: "2020"
+  script:
+    - echo "Not released yet!"
+  only:
+    variables:
+      - $YEAR == "2020" || $ALL == "true"
+
+2020_full:
+  stage: "2020"
+  script:
+    - echo "Not released yet!"
+  only:
+    variables:
+      - $YEAR == "2020" || $ALL == "true"
