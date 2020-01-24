@@ -21,7 +21,12 @@ stages:
 2018_basic:
   stage: "2018"
   script:
-    - echo $CI_JOB_STAGE
+    - docker build --pull -t "$CI_REGISTRY_IMAGE_BASIC":2018 --build-arg YEAR="$CI_JOB_STAGE" --file Dockerfile.historic .
+    - tex --version
+    - latex --version
+    - xelatex --version
+    - pdflatex --version
+    - docker push "$CI_REGISTRY_IMAGE_BASIC":2018
   only:
     variables:
       - $YEAR == "2018" || $ALL == "true"
@@ -29,7 +34,8 @@ stages:
 2018_full:
   stage: "2018"
   script:
-    - echo $CI_JOB_STAGE
+    - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":2018 --build-arg YEAR="$CI_JOB_STAGE" --build-arg IMAGE="mirisbowring/texlive_ctan_basic:2018" --file Dockerfile.historic .
+    - docker push "$CI_REGISTRY_IMAGE_FULL":2018
   only:
     variables:
       - $YEAR == "2018" || $ALL == "true"
@@ -47,7 +53,6 @@ stages:
   stage: "2019"
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":2019 --file Dockerfile.full .
-    - echo "done!"
     - docker push "$CI_REGISTRY_IMAGE_FULL":2019
   only:
     variables:

@@ -1,0 +1,6 @@
+ARG IMAGE=""
+FROM $IMAGE
+
+RUN tlmgr update --self; \
+    tlmgr install scheme-full; \
+    tlmgr update --all
