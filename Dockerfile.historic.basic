@@ -44,11 +44,11 @@ RUN apt-get update -q && apt-get install -qy \
 
 # Install TexLive with scheme-basic
 
-RUN wget https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/"$YEAR"/install-tl-unx.tar.gz; \
+RUN wget https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/"$YEAR"/tlnet-final/install-tl-unx.tar.gz; \
 	mkdir /install-tl-unx; \
 	tar -xf install-tl-unx.tar.gz -C /install-tl-unx --strip-components=1; \
     echo "selected_scheme scheme-basic" >> /install-tl-unx/texlive.profile; \
-	/install-tl-unx/install-tl -profile /install-tl-unx/texlive.profile; \
+	/install-tl-unx/install-tl -profile /install-tl-unx/texlive.profile -repository https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2016/tlnet-final/; \
     rm -r /install-tl-unx; \
 	rm install-tl-unx.tar.gz
 
