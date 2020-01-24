@@ -14,8 +14,13 @@ after_script:
   - docker logout
 
 stages:
- - 2019
+ - 2018
 #  - 2020
+
+2018_basic:
+  stage: 2018
+  script:
+    - echo $CI_JOB_STAGE
 
 2019_basic:
   stage: 2019
