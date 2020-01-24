@@ -14,73 +14,73 @@ after_script:
   - docker logout
 
 stages:
-  - "2014"
-  - "2015"
-  - "2016"
+  # - "2014"
+  # - "2015"
+  # - "2016"
   - "2017"
   - "2018"
   - "2019"
   - "2020"
 
-2014_basic:
-  stage: "2014"
-  script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final --build-arg YEAR="$CI_JOB_STAGE" --file Dockerfile.historic.basic .
-    - docker tag "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
-    - docker push "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
-  only:
-    variables:
-      - $YEAR == "2014" || $ALL == "true"
+# 2014_basic:
+#   stage: "2014"
+#   script:
+#     - docker build --pull -t "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final --build-arg YEAR="$CI_JOB_STAGE" --file Dockerfile.historic.basic .
+#     - docker tag "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
+#     - docker push "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
+#   only:
+#     variables:
+#       - $YEAR == "2014" || $ALL == "true"
 
-2014_full:
-  stage: "2014"
-  script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final --build-arg YEAR="$CI_JOB_STAGE" --build-arg IMAGE="mirisbowring/texlive_ctan_basic:$CI_JOB_STAGE" --file Dockerfile.historic.full .
-    - docker tag "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
-    - docker push "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final
-  only:
-    variables:
-      - $YEAR == "2014" || $ALL == "true"
+# 2014_full:
+#   stage: "2014"
+#   script:
+#     - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final --build-arg YEAR="$CI_JOB_STAGE" --build-arg IMAGE="mirisbowring/texlive_ctan_basic:$CI_JOB_STAGE"-final --file Dockerfile.historic.full .
+#     - docker tag "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
+#     - docker push "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final
+#   only:
+#     variables:
+#       - $YEAR == "2014" || $ALL == "true"
 
-2015_basic:
-  stage: "2015"
-  script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final --build-arg YEAR="$CI_JOB_STAGE" --file Dockerfile.historic.basic .
-    - docker tag "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
-    - docker push "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
-  only:
-    variables:
-      - $YEAR == "2015" || $ALL == "true"
+# 2015_basic:
+#   stage: "2015"
+#   script:
+#     - docker build --pull -t "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final --build-arg YEAR="$CI_JOB_STAGE" --file Dockerfile.historic.basic .
+#     - docker tag "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
+#     - docker push "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
+#   only:
+#     variables:
+#       - $YEAR == "2015" || $ALL == "true"
 
-2015_full:
-  stage: "2015"
-  script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final --build-arg YEAR="$CI_JOB_STAGE" --build-arg IMAGE="mirisbowring/texlive_ctan_basic:$CI_JOB_STAGE" --file Dockerfile.historic.full .
-    - docker tag "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
-    - docker push "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final
-  only:
-    variables:
-      - $YEAR == "2015" || $ALL == "true"
+# 2015_full:
+#   stage: "2015"
+#   script:
+#     - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final --build-arg YEAR="$CI_JOB_STAGE" --build-arg IMAGE="mirisbowring/texlive_ctan_basic:$CI_JOB_STAGE"-final --file Dockerfile.historic.full .
+#     - docker tag "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
+#     - docker push "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final
+#   only:
+#     variables:
+#       - $YEAR == "2015" || $ALL == "true"
 
-2016_basic:
-  stage: "2016"
-  script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final --build-arg YEAR="$CI_JOB_STAGE" --file Dockerfile.historic.basic .
-    - docker tag "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
-    - docker push "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
-  only:
-    variables:
-      - $YEAR == "2016" || $ALL == "true"
+# 2016_basic:
+#   stage: "2016"
+#   script:
+#     - docker build --pull -t "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final --build-arg YEAR="$CI_JOB_STAGE" --file Dockerfile.historic.basic .
+#     - docker tag "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
+#     - docker push "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
+#   only:
+#     variables:
+#       - $YEAR == "2016" || $ALL == "true"
 
-2016_full:
-  stage: "2016"
-  script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final --build-arg YEAR="$CI_JOB_STAGE" --build-arg IMAGE="mirisbowring/texlive_ctan_basic:$CI_JOB_STAGE" --file Dockerfile.historic.full .
-    - docker tag "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
-    - docker push "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final
-  only:
-    variables:
-      - $YEAR == "2016" || $ALL == "true"
+# 2016_full:
+#   stage: "2016"
+#   script:
+#     - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final --build-arg YEAR="$CI_JOB_STAGE" --build-arg IMAGE="mirisbowring/texlive_ctan_basic:$CI_JOB_STAGE"-final --file Dockerfile.historic.full .
+#     - docker tag "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
+#     - docker push "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final
+#   only:
+#     variables:
+#       - $YEAR == "2016" || $ALL == "true"
 
 2017_basic:
   stage: "2017"
@@ -95,7 +95,7 @@ stages:
 2017_full:
   stage: "2017"
   script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final --build-arg YEAR="$CI_JOB_STAGE" --build-arg IMAGE="mirisbowring/texlive_ctan_basic:$CI_JOB_STAGE" --file Dockerfile.historic.full .
+    - docker build --pull -t "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final --build-arg YEAR="$CI_JOB_STAGE" --build-arg IMAGE="mirisbowring/texlive_ctan_basic:$CI_JOB_STAGE"-final --file Dockerfile.historic.full .
     - docker tag "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final "$CI_REGISTRY_IMAGE_BASIC":"$CI_JOB_STAGE"-final
     - docker push "$CI_REGISTRY_IMAGE_FULL":"$CI_JOB_STAGE"-final
   only:
