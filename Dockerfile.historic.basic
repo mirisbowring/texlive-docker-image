@@ -48,7 +48,7 @@ RUN wget https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/"$YEAR"/tln
 	mkdir /install-tl-unx; \
 	tar -xf install-tl-unx.tar.gz -C /install-tl-unx --strip-components=1; \
     echo "selected_scheme scheme-basic" >> /install-tl-unx/texlive.profile; \
-	/install-tl-unx/install-tl -profile /install-tl-unx/texlive.profile -repository https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2016/tlnet-final/; \
+	/install-tl-unx/install-tl -profile /install-tl-unx/texlive.profile -repository https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/"$YEAR"/tlnet-final/; \
     rm -r /install-tl-unx; \
 	rm install-tl-unx.tar.gz
 
