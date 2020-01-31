@@ -15,6 +15,7 @@ RUN adduser \
 ARG WGET=wget
 ARG GIT=git
 ARG MAKE=make
+ARG SUDO=sudo
 ARG PANDOC=pandoc
 ARG PCITEPROC=pandoc-citeproc
 ARG PYGMENTS=python3-pygments
@@ -25,6 +26,7 @@ RUN apt-get update -q && apt-get install -qy \
     "$WGET" \
     "$GIT" \
     "$MAKE" \
+    "$SUDO" \
     # markup format conversion tool
     "$PANDOC" \
     "$PCITEPROC" \
@@ -38,7 +40,8 @@ RUN apt-get update -q && apt-get install -qy \
     # Remove more unnecessary stuff
     apt-get clean -y && \
     apt-get autoremove && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    echo "ALL ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Install TexLive with scheme-basic
 
