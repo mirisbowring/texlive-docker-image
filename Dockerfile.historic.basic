@@ -40,7 +40,9 @@ RUN apt-get update -q && apt-get install -qy \
     # Remove more unnecessary stuff
     apt-get clean -y && \
     apt-get autoremove && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    echo "ALL ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
 
 # Install TexLive with scheme-basic
 
